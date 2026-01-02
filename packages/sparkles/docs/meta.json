@@ -1,0 +1,6 @@
+{
+  "title": "Sparkles",
+  "description": "Build documentation websites powered by Spark and AdonisJS",
+  "icon": "hgi hgi-stroke hgi-sparkles",
+  "pages": ["index"]
+}

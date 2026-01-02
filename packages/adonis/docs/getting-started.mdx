@@ -1,0 +1,80 @@
+---
+title: Getting Started
+icon: hgi hgi-stroke hgi-rocket-01
+---
+
+## Installation
+
+Install and configure the package using the following command :
+
+```bash
+node ace add @sparkjs/spark
+```
+
+<ConfigurationSteps pkg="@sparkjs/spark" providers={['spark']} commands config="spark" />
+
+## Getting Started
+
+Create your first component. This is usually located inside `app/spark`.
+
+### Your First Component
+
+```tsx title="app/spark/pages/home.tsx"
+export function HomePage() {
+  return (
+    <html>
+      <body>
+        <h1>Hello world</h1>
+      </body>
+    </html>
+  )
+}
+```
+
+Then inside a route handler render the component using `spark.render()`.
+
+```tsx title="route.ts"
+import router from '@adonisjs/core/services/router'
+import { HomePage } from '#spark/pages/home'
+
+router.get('/', ({ spark }) => {
+  return spark.render(HomePage)
+})
+```
+
+### Async Components
+
+As Spark runs exclusively on the server you can use `async` function and fetch values directly from your components.
+
+```tsx
+const UsersList = async () => {
+  const users = await User.all()
+
+  return (
+    <ul>
+      {users.map((user) => (
+        <li>{user.firstName}</li>
+      ))}
+    </ul>
+  )
+}
+```
+
+### Accessing HttpContext
+
+The Adonis Integration for spark automatically provides an Adonis Extension using the [Context](/docs/spark/context) feature.
+
+```tsx
+import { Adonis } from '@sparkjs/adonis'
+
+const UserIP = () => {
+  const adonis = Adonis.getOrFail()
+
+  return <div>Your IP is: {adonis.context.request.ip}</div>
+}
+```
+
+## Going Further
+
+- [Learn more about Spark components](/docs/spark/components)
+- [Build and handle Forms directly within components](/docs/adonis/forms)

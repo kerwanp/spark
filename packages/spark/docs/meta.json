@@ -1,0 +1,14 @@
+{
+  "title": "SparkJS",
+  "description": "Light-weight server-side JSX runtime",
+  "icon": "hgi hgi-stroke hgi-star",
+  "pages": [
+    "index",
+    "getting-started",
+    "---Guides---",
+    "components",
+    "context",
+    "custom-renderer",
+    "---Integrations---"
+  ]
+}
